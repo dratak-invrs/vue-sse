@@ -147,9 +147,9 @@ class SSEClient {
   }
 }
 
-function install(Vue, config) {
+function install(app, config) {
   // eslint-disable-next-line no-param-reassign, no-multi-assign
-  Vue.$sse = Vue.prototype.$sse = new SSEManager(config);
+  app.config.globalProperties.$sse = new SSEManager(config);
 
   if (config && config.polyfill) {
     Promise.resolve().then(function () { return eventsource$1; });
