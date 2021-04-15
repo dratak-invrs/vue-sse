@@ -1,5 +1,5 @@
 import { EventSource } from 'mocksse';
-import Vue from 'vue';
+import { createApp  } from 'vue';
 import VueSSE from '../src/index';
 
 Object.defineProperty(global, 'window', {
@@ -8,7 +8,9 @@ Object.defineProperty(global, 'window', {
   },
 });
 
-Vue.config.devtools = false;
-Vue.config.productionTip = false;
+const app = createApp({});
 
-Vue.use(VueSSE);
+app.config.devtools = false;
+app.config.productionTip = false;
+
+app.use(VueSSE);
